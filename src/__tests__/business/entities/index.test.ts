@@ -18,7 +18,11 @@ describe('Title text validation', () => {
         expect(isTitleTextValid(validString)).toBe(true);
     });
 
-    it('should invalid', () => {
+    it('should invalid (reuqired checking)', () => {
+        expect(isTitleTextValid('')).toBe(false);
+    });
+
+    it('should invalid (over valid range)', () => {
         const invalidString = createRamdomRangeString(TITLE_INVALID_NUMBER);
 
         expect(isTitleTextValid(invalidString)).toBe(false);
@@ -43,7 +47,7 @@ describe('Detail text validation', () => {
         expect(isDetailTextValid(validString)).toBe(true);
     });
 
-    it('should invalid', () => {
+    it('should invalid (over valid range', () => {
         const invalidString = createRamdomRangeString(DETAIL_INVALID_NUMBER);
 
         expect(isDetailTextValid(invalidString)).toBe(false);
