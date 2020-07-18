@@ -1,0 +1,1 @@
+# frontend-clean-architecture-essence-consideration
