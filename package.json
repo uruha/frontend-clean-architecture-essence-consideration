@@ -1,0 +1,26 @@
+{
+  "name": "frontend-clean-architecture-essence-consideration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uruha/frontend-clean-architecture-essence-consideration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uruha/frontend-clean-architecture-essence-consideration/issues"
+  },
+  "homepage": "https://github.com/uruha/frontend-clean-architecture-essence-consideration#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.3",
+    "typescript": "^3.9.7"
+  }
+}
