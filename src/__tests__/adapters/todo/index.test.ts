@@ -2,7 +2,7 @@ import { ITodo } from '~/business/entities';
 import { TodoJson, ITodoFetcher, FetcherTypeAdaptor } from '~/adapters/todo';
 
 const fetcherMock: ITodoFetcher = {
-  create: (title, string): Promise<TodoJson> => {
+  create: (): Promise<TodoJson> => {
     throw 'this object is mocking';
   }
 };
