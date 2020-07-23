@@ -9,6 +9,11 @@
     "lint:check": "eslint . --ext .ts",
     "lint:fmt": "eslint . --fix --ext .ts"
   },
+  "lint-staged": {
+    "*.{ts}": [
+        "eslint . --ext .ts --fix"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uruha/frontend-clean-architecture-essence-consideration.git"
@@ -28,7 +33,9 @@
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "ts-jest": "^26.1.3",
     "typescript": "^3.9.7"
