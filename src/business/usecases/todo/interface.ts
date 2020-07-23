@@ -1,18 +1,15 @@
-import { ITodo } from "~/business/entities";
-import { IUseCase, IUseCaseFactory } from "~/business/usecases/interface";
+import { ITodo } from '~/business/entities';
+import { IUseCase, IUseCaseFactory } from '~/business/usecases/interface';
 
 /** Data Access */
 export interface IDataAccess {
-  createTodo(
-    title: ITodo["title"],
-    detail: ITodo["detail"],
-  ): Promise<ITodo>;
+  createTodo(title: ITodo['title'], detail: ITodo['detail']): Promise<ITodo>;
 }
 
 /** I/O */
 export interface ICreateTodoInput {
-  title: ITodo["title"];
-  detail?: ITodo["detail"];
+  title: ITodo['title'];
+  detail?: ITodo['detail'];
 }
 
 export interface ICreateTodoOutput {
