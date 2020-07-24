@@ -1,7 +1,7 @@
 import * as entities from '~/business/entities';
 import * as usecase from '~/business/usecases/todo';
 
-export type TodoJson = {
+export type FetchedTodo = {
   id: number;
   title: string;
   detail?: string;
@@ -9,7 +9,7 @@ export type TodoJson = {
 };
 
 export interface ITodoFetcher {
-  create(title: string, detail?: string): Promise<TodoJson>;
+  create(title: string, detail?: string): Promise<FetchedTodo>;
 }
 
 export class FetcherTypeAdaptor implements usecase.interfaces.IDataAccess {

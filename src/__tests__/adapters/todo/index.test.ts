@@ -1,8 +1,8 @@
 import { ITodo } from '~/business/entities';
-import { TodoJson, ITodoFetcher, FetcherTypeAdaptor } from '~/adapters/todo';
+import { FetchedTodo, ITodoFetcher, FetcherTypeAdaptor } from '~/adapters/todo';
 
 const fetcherMock: ITodoFetcher = {
-  create: (): Promise<TodoJson> => {
+  create: (): Promise<FetchedTodo> => {
     throw 'this object is mocking';
   }
 };
@@ -11,7 +11,7 @@ describe('Fetching type adapter test', () => {
   let adaptor: FetcherTypeAdaptor;
   let title: string;
   let detail: string;
-  let fetchingData: TodoJson;
+  let fetchingData: FetchedTodo;
   let applicationData: ITodo;
 
   beforeAll(() => {
