@@ -16,7 +16,9 @@ const container = createContainer<ICradle>({
 container.register({
   todoFetcher: asClass(TodoFetcher, { lifetime: Lifetime.SINGLETON }),
   todoDataAccess: asClass(FetcherTypeAdaptor, { lifetime: Lifetime.SINGLETON }),
-  todoUsecase: asClass(usecases.todo.TodoUsecase)
+  todoUsecase: asClass(usecases.todo.TodoUsecase, {
+    lifetime: Lifetime.SINGLETON
+  })
 });
 
 export default container;
