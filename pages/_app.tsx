@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { AppProps } from 'next/app';
 import { DIContainerContext } from '~/web/view/context';
 import container from '~/web/view/container';

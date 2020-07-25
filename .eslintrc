@@ -6,6 +6,7 @@
     },
   "plugins": [
     "@typescript-eslint",
+    "react",
     "prettier"
   ],
   "env": {
@@ -14,6 +15,7 @@
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "prettier",
     "prettier/@typescript-eslint"
   ],
@@ -22,5 +24,10 @@
     "@typescript-eslint/explicit-function-return-type": [0, { "allowExpressions": true }],
     "@typescript-eslint/explicit-member-accessibility": [2, { "accessibility": "no-public" }],
     "@typescript-eslint/explicit-module-boundary-types": [0, { "allowTypedFunctionExpressions": false }]
+  },
+  "settings": {
+    "react": {
+        "version": "detect"
+    }
   }
 }
