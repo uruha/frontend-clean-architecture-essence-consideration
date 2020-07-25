@@ -1,6 +1,5 @@
 import { ITodo } from '~/business/entities';
 import * as interfaces from '~/business/usecases/todo/interface';
-// import * as factories from '~/business/usecases/todo/factory';
 import { TodoUsecase } from '~/business/usecases/todo';
 
 import { createRamdomRangeString } from '~/utils/test';
@@ -34,21 +33,18 @@ describe('Create Todo', () => {
 
   it('shuold created success', async () => {
     dataAccessMock.createTodo = async () => todo;
-    // const createTodo = factories.createTodoFactory(dataAccessMock);
     todoUsecase = new TodoUsecase(dataAccessMock);
     expect(await todoUsecase.createTodo(validInput)).toEqual({ todo });
   });
 
   it('should invaid input from title', async () => {
     dataAccessMock.createTodo = async () => todo;
-    // const createTodo = factories.createTodoFactory(dataAccessMock);
     todoUsecase = new TodoUsecase(dataAccessMock);
     expect(todoUsecase.createTodo(invalidTitleInput)).rejects.toThrow();
   });
 
   it('should invaid input from detail', async () => {
     dataAccessMock.createTodo = async () => todo;
-    // const createTodo = factories.createTodoFactory(dataAccessMock);
     todoUsecase = new TodoUsecase(dataAccessMock);
     expect(todoUsecase.createTodo(invalidDetailInput)).rejects.toThrow();
   });
@@ -57,7 +53,6 @@ describe('Create Todo', () => {
     dataAccessMock.createTodo = async () => {
       throw new Error();
     };
-    // const createTodo = factories.createTodoFactory(dataAccessMock);
     todoUsecase = new TodoUsecase(dataAccessMock);
     expect(todoUsecase.createTodo(validInput)).rejects.toThrow();
   });
