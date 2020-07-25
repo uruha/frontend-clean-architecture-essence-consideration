@@ -1,7 +1,5 @@
 import { ITodo } from '~/business/entities';
-import * as interfaces from '~/business/usecases/todo/interface';
-import { TodoUsecase } from '~/business/usecases/todo';
-
+import { interfaces, TodoUsecase } from '~/business/usecases/todo';
 import { createRamdomRangeString } from '~/utils/test';
 
 class DataAccessMock implements interfaces.IDataAccess {
