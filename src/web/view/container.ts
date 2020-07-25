@@ -4,8 +4,8 @@ import { FetcherTypeAdaptor } from '~/adapters/todo';
 import TodoFetcher from '~/web/api/todo';
 
 export interface ICradle {
-  fetcher: TodoFetcher;
-  dataAccess: FetcherTypeAdaptor;
+  todoFetcher: TodoFetcher;
+  todoDataAccess: FetcherTypeAdaptor;
   todoUsecase: usecases.todo.TodoUsecase;
 }
 
@@ -14,9 +14,11 @@ const container = createContainer<ICradle>({
 });
 
 container.register({
-  fetcher: asClass(TodoFetcher, { lifetime: Lifetime.SINGLETON }),
-  dataAccess: asClass(FetcherTypeAdaptor, { lifetime: Lifetime.SINGLETON }),
-  todoUsecase: asClass(usecases.todo.TodoUsecase)
+  todoFetcher: asClass(TodoFetcher, { lifetime: Lifetime.SINGLETON }),
+  todoDataAccess: asClass(FetcherTypeAdaptor, { lifetime: Lifetime.SINGLETON }),
+  todoUsecase: asClass(usecases.todo.TodoUsecase, {
+    lifetime: Lifetime.SINGLETON
+  })
 });
 
 export default container;

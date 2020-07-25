@@ -2,10 +2,10 @@ import { isTitleTextValid, isDetailTextValid } from '~/business/entities';
 import * as interfaces from '~/business/usecases/todo/interface';
 
 class TodoUsecase implements interfaces.ITodoUsecase {
-  private readonly dataAccess: interfaces.IDataAccess;
+  private readonly todoDataAccess: interfaces.IDataAccess;
 
-  constructor(dataAccess: interfaces.IDataAccess) {
-    this.dataAccess = dataAccess;
+  constructor(todoDataAccess: interfaces.IDataAccess) {
+    this.todoDataAccess = todoDataAccess;
   }
 
   async createTodo(
@@ -20,7 +20,10 @@ class TodoUsecase implements interfaces.ITodoUsecase {
     }
 
     try {
-      const todo = await this.dataAccess.createTodo(input.title, input.detail);
+      const todo = await this.todoDataAccess.createTodo(
+        input.title,
+        input.detail
+      );
       return { todo };
     } catch (cause) {
       throw new Error(cause);
