@@ -13,17 +13,17 @@ export interface ITodoFetcher {
 }
 
 export class FetcherTypeAdaptor implements usecase.interfaces.IDataAccess {
-  private readonly fetcher: ITodoFetcher;
+  private readonly todoFetcher: ITodoFetcher;
 
-  constructor(fetcher: ITodoFetcher) {
-    this.fetcher = fetcher;
+  constructor(todoFetcher: ITodoFetcher) {
+    this.todoFetcher = todoFetcher;
   }
 
   async createTodo(
     title: entities.ITodo['title'],
     detail: entities.ITodo['detail']
   ): Promise<entities.ITodo> {
-    const res = await this.fetcher.create(title, detail);
+    const res = await this.todoFetcher.create(title, detail);
 
     // convert fetching data to application data
     const todo = {
