@@ -1,5 +1,5 @@
 import { ITodo } from '~/business/entities';
-import { IUseCase, IUseCaseFactory } from '~/business/usecases/interface';
+import { IUseCase } from '~/business/usecases/interface';
 
 /** Data Access */
 export interface IDataAccess {
@@ -17,4 +17,7 @@ export interface ICreateTodoOutput {
 }
 
 export type ICreateTodo = IUseCase<ICreateTodoInput, ICreateTodoOutput>;
-export type ICreateTodoFactory = IUseCaseFactory<IDataAccess, ICreateTodo>;
+
+export interface ITodoUsecase {
+  createTodo: ICreateTodo;
+}

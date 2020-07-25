@@ -3,14 +3,14 @@ import { useState, useContext } from 'react';
 import { DIContainerContext } from '~/web/view/context';
 
 const App: React.FC = () => {
-  const { createTodo } = useContext(DIContainerContext).cradle;
+  const { todoUsecase } = useContext(DIContainerContext).cradle;
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
 
   const handleSubmit = async () => {
     const input = { title, detail };
     try {
-      const { todo } = await createTodo(input);
+      const { todo } = await todoUsecase.createTodo(input);
       console.log(todo);
 
       setTitle('');

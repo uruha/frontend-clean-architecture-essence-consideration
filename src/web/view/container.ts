@@ -1,10 +1,4 @@
-import {
-  createContainer,
-  asClass,
-  InjectionMode,
-  asFunction,
-  Lifetime
-} from 'awilix';
+import { createContainer, asClass, InjectionMode, Lifetime } from 'awilix';
 import * as usecases from '~/business/usecases';
 import { FetcherTypeAdaptor } from '~/adapters/todo';
 import TodoFetcher from '~/web/api/todo';
@@ -12,7 +6,7 @@ import TodoFetcher from '~/web/api/todo';
 export interface ICradle {
   fetcher: TodoFetcher;
   dataAccess: FetcherTypeAdaptor;
-  createTodo: usecases.todo.interfaces.ICreateTodo;
+  todoUsecase: usecases.todo.TodoUsecase;
 }
 
 const container = createContainer<ICradle>({
@@ -22,7 +16,7 @@ const container = createContainer<ICradle>({
 container.register({
   fetcher: asClass(TodoFetcher, { lifetime: Lifetime.SINGLETON }),
   dataAccess: asClass(FetcherTypeAdaptor, { lifetime: Lifetime.SINGLETON }),
-  createTodo: asFunction(usecases.todo.factories.createTodoFactory)
+  todoUsecase: asClass(usecases.todo.TodoUsecase)
 });
 
 export default container;
