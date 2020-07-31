@@ -31,7 +31,40 @@
     ],
     "@typescript-eslint/explicit-module-boundary-types": [
       "off",
-      { "allowTypedFunctionExpressions": false }]
+      { "allowTypedFunctionExpressions": false }
+    ],
+    "@typescript-eslint/naming-convention" : [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+          "selector": "variable",
+          "format": ["PascalCase", "camelCase", "UPPER_CASE"],
+          "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "parameter",
+        "format": ["PascalCase", "camelCase"]
+      },
+      {
+          "selector": "property",
+          "format": ["PascalCase", "camelCase"]
+      },
+      {
+          "selector": "typeLike",
+          "format": ["PascalCase"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ]
   },
   "settings": {
     "react": {
