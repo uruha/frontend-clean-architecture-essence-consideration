@@ -41,8 +41,7 @@
       },
       {
           "selector": "variable",
-          "format": ["PascalCase", "camelCase", "UPPER_CASE"],
-          "leadingUnderscore": "allow"
+          "format": ["PascalCase", "camelCase", "UPPER_CASE"]
       },
       {
         "selector": "parameter",
