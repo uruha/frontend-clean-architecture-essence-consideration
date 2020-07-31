@@ -21,9 +21,49 @@
   ],
   "rules": {
     "prettier/prettier": "error",
-    "@typescript-eslint/explicit-function-return-type": [0, { "allowExpressions": true }],
-    "@typescript-eslint/explicit-member-accessibility": [2, { "accessibility": "no-public" }],
-    "@typescript-eslint/explicit-module-boundary-types": [0, { "allowTypedFunctionExpressions": false }]
+    "@typescript-eslint/explicit-function-return-type": [
+      "off",
+      { "allowExpressions": true }
+    ],
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      { "accessibility": "no-public" }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "off",
+      { "allowTypedFunctionExpressions": false }
+    ],
+    "@typescript-eslint/naming-convention" : [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+          "selector": "variable",
+          "format": ["PascalCase", "camelCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["PascalCase", "camelCase"]
+      },
+      {
+          "selector": "property",
+          "format": ["PascalCase", "camelCase"]
+      },
+      {
+          "selector": "typeLike",
+          "format": ["PascalCase"]
+      },
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ]
   },
   "settings": {
     "react": {
