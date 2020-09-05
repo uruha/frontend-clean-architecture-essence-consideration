@@ -1,8 +1,19 @@
 import { ITodo } from '~/business/entities';
-import { FetchedTodo, ITodoFetcher, FetcherTypeAdaptor } from '~/adapters/todo';
+import {
+  FetchedTodo,
+  ITodoFetcher,
+  FetcherTypeAdaptor,
+  FetchedTodoList
+} from '~/adapters/todo';
 
 const fetcherMock: ITodoFetcher = {
   create: (): Promise<FetchedTodo> => {
+    throw 'this object is mocking';
+  },
+  getAll: (): Promise<FetchedTodoList> => {
+    throw 'this object is mocking';
+  },
+  get: (): Promise<FetchedTodo> => {
     throw 'this object is mocking';
   }
 };
