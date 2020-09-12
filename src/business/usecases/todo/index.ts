@@ -29,6 +29,26 @@ class TodoUsecase implements interfaces.ITodoUsecase {
       throw new Error(cause);
     }
   }
+
+  async getTodoList(): Promise<interfaces.IGetTodoListOutput> {
+    try {
+      const todoList = await this.todoDataAccess.getTodoList();
+      return { todoList };
+    } catch (cause) {
+      throw new Error(cause);
+    }
+  }
+
+  async getTodo(
+    input: interfaces.IGetTodoInput
+  ): Promise<interfaces.IGetTodoOutput> {
+    try {
+      const todo = await this.todoDataAccess.getTodo(input.id);
+      return { todo };
+    } catch (cause) {
+      throw new Error(cause);
+    }
+  }
 }
 
 export { interfaces, TodoUsecase };

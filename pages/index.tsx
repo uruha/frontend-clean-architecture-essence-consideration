@@ -2,10 +2,36 @@ import * as React from 'react';
 import { useState, useContext } from 'react';
 import { DIContainerContext } from '~/web/view/context';
 
+import { ITodo, ITodoList } from '~/business/entities';
+
+type ItemProps = {
+  todo: ITodo;
+};
+
+const Item: React.FC<ItemProps> = ({ todo }) => {
+  return (
+    <li>
+      <h3>{todo.title}</h3>
+      <p>{todo.detail}</p>
+      <time>{todo.createdAt}</time>
+    </li>
+  );
+};
+
 const App: React.FC = () => {
   const { todoUsecase } = useContext(DIContainerContext).cradle;
   const [title, setTitle] = useState('');
   const [detail, setDetail] = useState('');
+  const [list, setTodoList] = useState<ITodoList>([]);
+
+  const handleGetTodoList = async () => {
+    try {
+      const { todoList } = await todoUsecase.getTodoList();
+      setTodoList(todoList);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleSubmit = async () => {
     const input = { title, detail };
@@ -15,10 +41,15 @@ const App: React.FC = () => {
 
       setTitle('');
       setDetail('');
+      handleGetTodoList();
     } catch (error) {
       console.log(error);
     }
   };
+
+  React.useEffect(() => {
+    handleGetTodoList();
+  }, []);
 
   return (
     <>
@@ -52,6 +83,15 @@ const App: React.FC = () => {
             Submit
           </button>
         </div>
+      </div>
+      <div>
+        <ul>
+          {list.length ? (
+            list.reverse().map(todo => <Item key={todo.id} todo={todo} />)
+          ) : (
+            <li>Loading...</li>
+          )}
+        </ul>
       </div>
     </>
   );
