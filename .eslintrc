@@ -33,6 +33,9 @@
       "off",
       { "allowTypedFunctionExpressions": false }
     ],
+    "react/prop-types": [
+      "off"
+    ],
     "@typescript-eslint/naming-convention" : [
       "error",
       {
