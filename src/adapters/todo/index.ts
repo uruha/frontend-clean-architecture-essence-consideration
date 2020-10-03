@@ -42,7 +42,7 @@ export class FetcherTypeAdaptor implements usecase.interfaces.IDataAccess {
   async getTodoList(): Promise<entities.ITodoList> {
     const res = await this.todoFetcher.getAll();
 
-    const todoList = res.map(todo => {
+    const todoList = res.reverse().map(todo => {
       return {
         id: todo.id.toString(),
         title: todo.title,
