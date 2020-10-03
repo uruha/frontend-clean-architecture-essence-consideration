@@ -23,7 +23,9 @@ describe('Fetching type adapter test', () => {
   let title: string;
   let detail: string;
   let fetchingData: FetchedTodo;
+  let fetchingData02: FetchedTodo;
   let applicationData: ITodo;
+  let applicationData02: ITodo;
 
   beforeAll(() => {
     adaptor = new FetcherTypeAdaptor(fetcherMock);
@@ -38,6 +40,18 @@ describe('Fetching type adapter test', () => {
     };
     applicationData = {
       id: '0',
+      title,
+      detail,
+      createdAt
+    };
+    fetchingData02 = {
+      id: 1,
+      title,
+      detail,
+      createdAt
+    };
+    applicationData02 = {
+      id: '1',
       title,
       detail,
       createdAt
@@ -60,8 +74,11 @@ describe('Fetching type adapter test', () => {
 
   describe('[Get All] method testing', () => {
     it('should convert fetching data to application data', async () => {
-      fetcherMock.getAll = async () => [fetchingData];
-      expect(await adaptor.getTodoList()).toEqual([applicationData]);
+      fetcherMock.getAll = async () => [fetchingData, fetchingData02];
+      expect(await adaptor.getTodoList()).toEqual([
+        applicationData02,
+        applicationData
+      ]);
     });
 
     it('should fetching faild', async () => {
