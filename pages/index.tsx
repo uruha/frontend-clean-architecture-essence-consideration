@@ -87,7 +87,7 @@ const App: React.FC = () => {
       <div>
         <ul>
           {list.length ? (
-            list.reverse().map(todo => <Item key={todo.id} todo={todo} />)
+            list.map(todo => <Item key={todo.id} todo={todo} />)
           ) : (
             <li>Loading...</li>
           )}
