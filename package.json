@@ -11,6 +11,11 @@
     "dev": "next",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint . --ext .ts,.tsx --fix"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uruha/frontend-clean-architecture-essence-consideration.git"
